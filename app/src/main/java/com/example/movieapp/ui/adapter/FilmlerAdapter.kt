@@ -3,8 +3,10 @@ package com.example.movieapp.ui.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.example.movieapp.R
 import com.example.movieapp.data.entity.Filmler
 import com.example.movieapp.databinding.CardTasarimBinding
 import com.example.movieapp.databinding.FragmentAnasayfaBinding
@@ -18,7 +20,7 @@ class FilmlerAdapter(var mContext:Context,var FilmlerListesi:List<Filmler>)
     inner class CardTasarimTutucu(var tasarim:CardTasarimBinding) : RecyclerView.ViewHolder(tasarim.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardTasarimTutucu {
-       val binding = CardTasarimBinding.inflate(LayoutInflater.from(mContext), parent, false)
+       val binding:CardTasarimBinding=DataBindingUtil.inflate(LayoutInflater.from(mContext),R.layout.card_tasarim, parent, false)
         return CardTasarimTutucu(binding)
     }
     override fun onBindViewHolder(holder: CardTasarimTutucu, position: Int) {
@@ -27,7 +29,7 @@ class FilmlerAdapter(var mContext:Context,var FilmlerListesi:List<Filmler>)
         t.imageViewFilm.setImageResource(
             mContext.resources.getIdentifier(film.resim,"drawable",mContext.packageName))
 
-        t.textViewFiyat.text="${film.fiyat}"
+        t.filmNesnesi=film
 
         t.cardViewFilm.setOnClickListener{
        val gecis= AnasayfaFragmentDirections.detayGecis(filn = film)
