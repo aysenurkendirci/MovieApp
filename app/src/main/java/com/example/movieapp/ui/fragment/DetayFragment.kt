@@ -10,7 +10,9 @@ import androidx.navigation.NavArgs
 import androidx.navigation.fragment.navArgs
 import com.example.movieapp.R
 import com.example.movieapp.databinding.FragmentDetayBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetayFragment : Fragment() {
     private lateinit var binding: FragmentDetayBinding
     override fun onCreateView(
