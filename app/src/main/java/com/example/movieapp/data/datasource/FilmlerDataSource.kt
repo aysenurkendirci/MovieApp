@@ -1,26 +1,28 @@
 package com.example.movieapp.data.datasource
 
+import androidx.lifecycle.MutableLiveData
 import com.example.movieapp.data.entity.Filmler
+import com.google.firebase.firestore.CollectionReference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class FilmlerDataSource {
-    suspend fun filmleriYukle() : List<Filmler> =
-        withContext(Dispatchers.IO){
-            val filmlerlistesi = ArrayList<Filmler>()
-            val f1=Filmler(1,"Django","django",24)
-            val f2=Filmler(2,"Interstellar","interstellar",32)
-            val f3=Filmler(3,"Inception","inception",16)
-            val f4=Filmler(4,"The Hateful Eight","thehatefuleight",28)
-            val f5=Filmler(5,"The Pianist","thepianist",18)
-            val f6=Filmler(6,"Anadoluda","anadoluda",10)
-            filmlerlistesi.add(f1)
-            filmlerlistesi.add(f2)
-            filmlerlistesi.add(f3)
-            filmlerlistesi.add(f4)
-            filmlerlistesi.add(f5)
-            filmlerlistesi.add(f6)
+class FilmlerDataSource(val collectionFilmler: CollectionReference) {
+   fun filmleriYukle() : MutableLiveData<List<Filmler>>
+    {
+        val filmlerListesi = MutableLiveData<List<Filmler>>()
+        collectionFilmler.get().addOnCompleteListener{
+            val liste = ArrayList<Filmler>()
+            for (d in it.result) {
+                val film = d.toObject(Filmler::class.java)
+                film.id = d.id
+                liste.add(film)
+            }
 
-            return@withContext filmlerlistesi
+            filmlerListesi.value = liste
         }
+
+        return filmlerListesi
+
+
+    }
 }

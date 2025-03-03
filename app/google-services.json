@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "734527156664",
+    "project_id": "egitim-f6e96",
+    "storage_bucket": "egitim-f6e96.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734527156664:android:1ab7570c26cbadc3a9df4d",
+        "android_client_info": {
+          "package_name": "com.example.kisileruygulamasi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgiJ2zITXmb-6wjrZFjcAqHzB37SMdBPY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734527156664:android:dd0bd79bd4cad2eba9df4d",
+        "android_client_info": {
+          "package_name": "com.example.movieapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgiJ2zITXmb-6wjrZFjcAqHzB37SMdBPY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

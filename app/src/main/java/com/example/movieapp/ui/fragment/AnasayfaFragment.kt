@@ -14,7 +14,11 @@ import com.example.movieapp.data.entity.Filmler
 import com.example.movieapp.databinding.FragmentAnasayfaBinding
 import com.example.movieapp.ui.adapter.FilmlerAdapter
 import com.example.movieapp.ui.viewmodel.AnasayfaViewModel
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.firestore
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AnasayfaFragment : Fragment() {
     private lateinit var binding: FragmentAnasayfaBinding
     private lateinit var viewModel: AnasayfaViewModel
@@ -27,6 +31,7 @@ class AnasayfaFragment : Fragment() {
             val filmlerAdapter = FilmlerAdapter(requireContext(),it)
             binding.filmlerAdapter= filmlerAdapter
         }
+
         return binding.root
     }
 
